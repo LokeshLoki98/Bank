@@ -1,0 +1,43 @@
+<body>
+    <div class="signup-form">
+        <form action="/examples/actions/confirmation.php" method="post">
+            <h2>Sign Up</h2>
+            <p>Please fill in this form to create an account!</p>
+            <hr>
+            <div class="form-group">
+                <div class="input-group">
+                    <span class="input-group-addon"><i class="fa fa-user"></i></span>
+                <!-- name  -->
+                    <input type="text" #myname class="form-control" name="username" placeholder="Username" required="required">
+                    <span>{{alertname}}</span>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="input-group">
+                    <span class="input-group-addon"><i class="fa fa-lock"></i></span>
+                   <!-- password  -->
+                    <input type="text"  class="form-control" name="password" placeholder="Password" required="required" #mypass>
+                    <span>{{alertpass1}}</span>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="input-group">
+                    <span class="input-group-addon">
+                        <i class="fa fa-lock"></i>
+                        <i class="fa fa-check"></i>
+                    </span>
+                    <input type="text" class="form-control" name="confirm_password" placeholder="Confirm Password" required="required"#cpass>
+                    <div>{{alertpass}}</div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="checkbox-inline"><input type="checkbox" required="required"> I accept the <a href="#">Terms of Use</a> &amp; <a href="#">Privacy Policy</a></label>
+            </div>
+            <div class="form-group">
+                <input type="button" value="signup" class="btn btn-primary btn-lg" (click)="abc( myname.value,mypass.value,cpass.value)" routerLink = "login">
+            </div>
+        </form>
+        <div class="text-center">Already have an account? <a >Login here</a></div>
+    </div> 
+    </body>
+    <router-outlet></router-outlet>
