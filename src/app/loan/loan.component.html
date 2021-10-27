@@ -1,0 +1,42 @@
+<div class="container">
+
+    <div class="container1">
+      <h1>Loan Emi calculator</h1>
+    
+    <form>
+  
+      <label></label><input type="text" #principal placeholder="Enter Principle Amount"><br>
+  
+      <label></label><input type="text" #month placeholder="Enter Number of Months"><br>
+  
+      <label></label><input type="text" value="{{roi}}" #rate placeholder="Rate of Interest"><br>
+  
+      <label></label>
+  
+      <select id="myval" (change)="select(loan.value)" #loan>
+        <option value="0">Please Select Loan Type</option>
+  
+        <option value=5> Vehicle Loan </option >
+  
+        <option value=6.9>Home Loan</option>
+  
+        <option value=5>Personal Loan</option>
+  
+        <option value=4.5>Education Loan</option>
+  
+      </select><br><br>
+  
+      <input type="button" class="calculate"value="Calculator" (click)="calculate(principal.value,month.value,rate.value)"><br>
+  
+      <h5>Amount paid per month:{{b}}</h5>
+  
+    </form>
+  
+  
+  
+  </div>
+
+    
+  
+  </div>
+

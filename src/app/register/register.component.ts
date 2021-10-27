@@ -13,27 +13,27 @@ export class RegisterComponent implements OnInit {
   alertpass:any;
   alertname:any;
   alertpass1:any;
+  color="red";
+  
   constructor(private router:Router){}
   
   abc(name:any,pass:any,cpass:any)
-  {
-    if( pass==cpass && (name!==""||pass!==""||cpass!==""))
     {
-      localStorage.setItem("username",name);
-      localStorage.setItem("password",pass);
-      this.router.navigateByUrl("login");
-    }
-    else 
-    {
-    
-      this.alertpass="Enter same password"
-      this.alertname="Enter valid name"
-      this.alertpass1="Enter valid password"
+      if( (pass==cpass) && (pass!=="") &&(name!==""))
+      {
+        localStorage.setItem("username",name);
+        localStorage.setItem("password",pass);
+        this.router.navigateByUrl("login");
+      }
+      else 
+      {
+        this.alertpass="Enter same password";
+        this.alertname="Enter valid name";
+        this.alertpass1="Enter valid password";    
+      }
       
-    }
-    
 
-  }
+    }
   ngOnInit(): void {
   }
 
