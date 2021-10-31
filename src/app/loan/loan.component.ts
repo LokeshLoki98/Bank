@@ -16,11 +16,7 @@ export class LoanComponent implements OnInit {
   select(myval1:any)
   {
 
-    console.log(this.roi)
-
     this.roi=myval1;
-
-    console.log(this.roi)
 
   }
 

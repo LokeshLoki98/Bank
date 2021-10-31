@@ -1,6 +1,7 @@
 <body>
+    <app-navbar></app-navbar>
     <div class="signup-form">
-        <form action="/examples/actions/confirmation.php" method="post">
+        <form (ngSubmit)="submitRegisterForm()" [formGroup]="registerForm">
             <h2>Sign Up</h2>
             <p>Please fill in this form to create an account!</p>
             <hr>
@@ -8,17 +9,21 @@
                 <div class="input-group">
                     <span class="input-group-addon"><i class="fa fa-user"></i></span>
                 <!-- name  -->
-                    <input type="text" #myname class="form-control" name="username" placeholder="Username" required="required">
-                    <span [style.color]="color" >{{alertname}}</span>
+                    <input formControlName="username" type="text"  class="form-control" name="username" placeholder="Username">
+                    <!-- <span [style.color]="color" >{{alertname}}</span> -->
+                    
                 </div>
+                <p *ngIf="registerForm.controls.username.hasError('required') && registerForm.controls.username.touched">Username is required*</p>
             </div>
             <div class="form-group">
                 <div class="input-group">
                     <span class="input-group-addon"><i class="fa fa-lock"></i></span>
                    <!-- password  -->
-                    <input type="text"  class="form-control" name="password" placeholder="Password" required="required" #mypass>
-                    <span>{{alertpass1}}</span>
+                    <input type="password" formControlName="password"  class="form-control" name="password" placeholder="Password" >
+                    <!-- <span>{{alertpass1}}</span> -->
                 </div>
+                <p *ngIf="registerForm.controls.password.hasError('required') && registerForm.controls.password.touched">Username is required*</p>
+
             </div>
             <div class="form-group">
                 <div class="input-group">
@@ -26,18 +31,21 @@
                         <i class="fa fa-lock"></i>
                         <i class="fa fa-check"></i>
                     </span>
-                    <input type="text" class="form-control" name="confirm_password" placeholder="Confirm Password" required="required"#cpass>
-                    <div>{{alertpass}}</div>
+                    <input type="text" formControlName="confirmPassword" class="form-control" name="confirm_password" placeholder="Confirm Password">
+                    <!-- <div>{{alertpass}}</div> -->
                 </div>
+                <p *ngIf="registerForm.controls.confirmPassword.hasError('required') && registerForm.controls.confirmPassword.touched">Username is required*</p>
+
             </div>
             <div class="form-group">
                 <label class="checkbox-inline"><input type="checkbox" required="required"> I accept the <a href="#">Terms of Use</a> &amp; <a href="#">Privacy Policy</a></label>
             </div>
-            <div class="form-group">
-                <input type="button" value="signup" class="btn btn-primary btn-lg" (click)="abc( myname.value,mypass.value,cpass.value)" routerLink = "login">
-            </div>
+        <button type="submit">Submit</button>
         </form>
         <div class="text-center">Already have an account? <a >Login here</a></div>
     </div> 
-    </body>
+    <div>
+       
+    </div>
+</body>
     <router-outlet></router-outlet>
